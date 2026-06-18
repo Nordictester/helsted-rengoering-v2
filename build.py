@@ -30,6 +30,179 @@ SERVICE_OPTIONS = """<option value="">Vælg ydelse (valgfrit)</option>
 
 THEME_FLASH = """<script>(function(){var t=localStorage.getItem('helsted-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})()</script>"""
 
+CONTACT_CTA = (
+    '<p>Kontakt os på tlf. 20 80 18 50 eller udfyld kontaktformularen '
+    '– så kontakter vi dig hurtigst muligt.</p>'
+    '<a href="kontakt.html" class="btn btn-primary">Kontakt os</a>'
+)
+
+
+def page_img(src: str, alt: str, contain: bool = False) -> str:
+    cls = "page-img contain" if contain else "page-img"
+    return f'<div class="{cls}"><img src="assets/img/{src}" alt="{alt}" loading="lazy" /></div>'
+
+
+# Auto-genererede undersider (ingen kilde-HTML i Hjemmeside)
+AUTO_PAGES = [
+    {
+        "file": "virksomhedsrengoering.html",
+        "slug": "virksomhedsrengoering",
+        "title": "Virksomhedsrengøring",
+        "breadcrumb": '<a href="index.html">Forside</a> / <a href="vi-tilbyder.html">Vi tilbyder</a> / <a href="rengoering.html">Rengøring</a> / Virksomhedsrengøring',
+        "image": ("rengoring.jpg", "Virksomhedsrengøring", True),
+        "body": """
+    <p>Helsted Specialrengøring og Skadeservice ApS udfører virksomhedsrengøring i Randers og omegn – tilpasset jeres behov og åbningstider.</p>
+    <p>Vi kan hjælpe med at sammensætte en pakkeløsning, så rengøringen passer til jeres lokaler, medarbejdere og kunder. Vi lægger vægt på punktlighed, tillid og høj kvalitet.</p>
+    <p>Har du brug for en fast aftale eller en engangsopgave? Vi tager gerne en uforpligtende snak om jeres ønsker.</p>""",
+    },
+    {
+        "file": "butiksrengoering.html",
+        "slug": "butiksrengoering",
+        "title": "Butiksrengøring",
+        "breadcrumb": '<a href="index.html">Forside</a> / <a href="vi-tilbyder.html">Vi tilbyder</a> / <a href="rengoering.html">Rengøring</a> / Butiksrengøring',
+        "image": ("rengoring.jpg", "Butiksrengøring", True),
+        "body": """
+    <p>Vi hjælper butikker i Randers og omegn med rengøring, der giver et indbydende og professionelt udtryk over for kunderne.</p>
+    <p>Butiksrengøring kan omfatte gulve, vinduer, toiletter, lager og andre områder – efter jeres behov og åbningstider.</p>
+    <p>Kontakt os for en aftale, der passer til jeres butik.</p>""",
+    },
+    {
+        "file": "kontorrengoering.html",
+        "slug": "kontorrengoering",
+        "title": "Kontorrengøring",
+        "breadcrumb": '<a href="index.html">Forside</a> / <a href="vi-tilbyder.html">Vi tilbyder</a> / <a href="rengoering.html">Rengøring</a> / Kontorrengøring',
+        "image": ("rengoring.jpg", "Kontorrengøring", True),
+        "body": """
+    <p>Vi udfører kontorrengøring for virksomheder i Randers Kronjylland – diskret, pålideligt og efter jeres ønsker.</p>
+    <p>Det kan være daglig, ugentlig eller månedlig rengøring af kontorer, mødelokaler, køkken og fællesarealer.</p>
+    <p>Vi sætter en ære i at overholde vores aftaler og levere et rent og præsentabelt resultat.</p>""",
+    },
+    {
+        "file": "trappevask.html",
+        "slug": "trappevask",
+        "title": "Trappevask",
+        "breadcrumb": '<a href="index.html">Forside</a> / <a href="vi-tilbyder.html">Vi tilbyder</a> / <a href="rengoering.html">Rengøring</a> / Trappevask',
+        "image": ("rengoring.jpg", "Trappevask", True),
+        "body": """
+    <p>Vi udfører trappevask i ejendomme og institutioner i Randers og omegn.</p>
+    <p>Trapper, repos og gelændere holdes rene og indbydende – efter en fast plan eller som enkeltstående opgaver.</p>
+    <p>Ring eller skriv, hvis du har brug for hjælp til trappevask.</p>""",
+    },
+    {
+        "file": "vinduespudsning.html",
+        "slug": "vinduespudsning",
+        "title": "Vinduespudsning",
+        "breadcrumb": '<a href="index.html">Forside</a> / <a href="vi-tilbyder.html">Vi tilbyder</a> / <a href="specialrengoering.html">Specialrengøring</a> / Vinduespudsning',
+        "image": ("facaderens.jpg", "Vinduespudsning", False),
+        "body": """
+    <p>Helsted Specialrengøring og Skadeservice ApS udfører vinduespudsning for private, erhverv og institutioner i Randers og omegn.</p>
+    <p>Vi sørger for rene vinduer indvendigt og udvendigt – også i højden, hvor det kræver særligt udstyr.</p>
+    <p>Kontakt os for et tilbud på vinduespudsning.</p>""",
+    },
+    {
+        "file": "gulvpolering.html",
+        "slug": "gulvpolering",
+        "title": "Gulvpolering",
+        "breadcrumb": '<a href="index.html">Forside</a> / <a href="vi-tilbyder.html">Vi tilbyder</a> / <a href="specialrengoering.html">Specialrengøring</a> / Gulvpolering',
+        "image": ("rengoring.jpg", "Gulvpolering", True),
+        "body": """
+    <p>Vi udfører gulvpolering som del af vores specialrengøring – bl.a. for virksomheder og institutioner i Randers.</p>
+    <p>Gulvpolering giver et pænt og holdbart resultat på de gulvtyper, hvor det er relevant.</p>
+    <p>Se også vores side om <a href="specialrengoering.html">specialrengøring</a> for andre specialopgaver.</p>""",
+    },
+    {
+        "file": "industriservice.html",
+        "slug": "industriservice",
+        "title": "Industriservice",
+        "breadcrumb": '<a href="index.html">Forside</a> / <a href="vi-tilbyder.html">Vi tilbyder</a> / <a href="specialrengoering.html">Specialrengøring</a> / Industriservice',
+        "image": ("special-rengoering.jpg", "Industriservice", False),
+        "body": """
+    <p>Vi udfører industriservice og rengøring i industrielle omgivelser i Randers og omegn.</p>
+    <p>Det kan være rengøring af produktionslokaler, maskiner og områder, hvor der kræves særlig faglighed og sikkerhed.</p>
+    <p>Med 43 års erfaring kender vi kravene til grundig og pålidelig udførelse.</p>""",
+    },
+    {
+        "file": "special-opgaver.html",
+        "slug": "special-opgaver",
+        "title": "Special opgaver/service",
+        "breadcrumb": '<a href="index.html">Forside</a> / <a href="vi-tilbyder.html">Vi tilbyder</a> / <a href="specialrengoering.html">Specialrengøring</a> / Special opgaver/service',
+        "image": ("special-rengoering.jpg", "Specialrengøring", False),
+        "body": """
+    <p>Vi udfører også:</p>
+    <ul>
+      <li>Gulvpolering</li>
+      <li>Håndværkerrengøring</li>
+      <li>Specialopgaver</li>
+      <li>Rengøring og oprydning efter hærværk og brand-, sod- og vandskader</li>
+      <li>Fjernelse af blod på gulvtæpper m.m.</li>
+    </ul>
+    <p>Har du en opgave, der ikke passer i de vanlige kategorier, er du velkommen til at kontakte os – vi finder ofte en løsning.</p>""",
+    },
+    {
+        "file": "hojtryksrens.html",
+        "slug": "hojtryksrens",
+        "title": "Højtryksrens",
+        "breadcrumb": '<a href="index.html">Forside</a> / <a href="vi-tilbyder.html">Vi tilbyder</a> / <a href="ekspert-opgaver.html">Ekspertopgaver</a> / Højtryksrens',
+        "image": ("facaderens.jpg", "Højtryksrens", False),
+        "body": """
+    <p>Højtryksrens er en effektiv metode til afrensning af facader, fliser, tag og andre hårde overflader.</p>
+    <p>Helsted Specialrengøring og Skadeservice ApS vælger tryk og metode ud fra materialet, så rensningen bliver grundig uden unødig skade på underlaget.</p>
+    <p>Se også vores <a href="facaderensning.html">facaderensning</a> og <a href="graffiti-rensning.html">graffitirensning</a>, hvis opgaven kræver særlig faglighed.</p>""",
+    },
+    {
+        "file": "tagrender.html",
+        "slug": "tagrender",
+        "title": "Rengøring af tagrender",
+        "breadcrumb": '<a href="index.html">Forside</a> / <a href="vi-tilbyder.html">Vi tilbyder</a> / <a href="ekspert-opgaver.html">Ekspertopgaver</a> / Rengøring af tagrender',
+        "image": ("hero-gade.jpg", "Rengøring af tagrender", False),
+        "body": """
+    <p>Vi hjælper med rengøring af tagrender, så vandet kan løbe frit og du undgår fugtskader og tilstopning.</p>
+    <p>Rengøring af tagrender er en god forebyggelse – især om efteråret, når blade og snavs samler sig.</p>
+    <p>Kontakt os i Randers og omegn, hvis du har brug for hjælp til tagrender.</p>""",
+    },
+]
+
+VI_TILBYDER_CONTENT = """
+    <h2>Rengøring</h2>
+    <ul>
+      <li><a href="virksomhedsrengoering.html">Virksomhedsrengøring</a></li>
+      <li><a href="butiksrengoering.html">Butiksrengøring</a></li>
+      <li><a href="kontorrengoering.html">Kontorrengøring</a></li>
+      <li><a href="social-rengoering.html">Socialrengøring</a></li>
+      <li><a href="trappevask.html">Trappevask</a></li>
+    </ul>
+
+    <h2>Specialrengøring</h2>
+    <ul>
+      <li><a href="vinduespudsning.html">Vinduespudsning</a></li>
+      <li><a href="gulvpolering.html">Gulvpolering</a></li>
+      <li><a href="industriservice.html">Industriservice</a></li>
+      <li><a href="special-opgaver.html">Special opgaver/service</a></li>
+    </ul>
+
+    <h2>Ekspert opgaver</h2>
+    <ul>
+      <li><a href="sandblaesning.html">Sandblæsning</a></li>
+      <li><a href="toeris-rensning.html">Tørisblæsning</a></li>
+      <li><a href="hojtryksrens.html">Højtryksrens</a></li>
+      <li><a href="pcb-sanering.html">PCB sanering</a></li>
+      <li><a href="skimmelsanering.html">Skimmelsvampsanering</a></li>
+      <li><a href="tagrender.html">Rengøring af tagrender</a></li>
+      <li><a href="graffiti-rensning.html">Graffiti og facade rensning</a></li>
+    </ul>"""
+
+EKSERT_CONTENT = """
+    <ul>
+      <li><a href="sandblaesning.html">Sandblæsning</a></li>
+      <li><a href="toeris-rensning.html">Tørisblæsning</a></li>
+      <li><a href="hojtryksrens.html">Højtryksrens</a></li>
+      <li><a href="pcb-sanering.html">PCB sanering</a></li>
+      <li><a href="skimmelsanering.html">Skimmelsvampsanering</a></li>
+      <li><a href="tagrender.html">Rengøring af tagrender</a></li>
+      <li><a href="graffiti-rensning.html">Graffiti og facade rensning</a></li>
+    </ul>
+    <p>Kontakt os på tlf. 20 80 18 50 eller udfyld kontaktformularen – så kontakter vi dig hurtigst muligt.</p>
+    <a href="kontakt.html" class="btn btn-primary">Kontakt os</a>"""
 
 def nav(active: str = "") -> str:
     def cls(page: str) -> str:
@@ -447,10 +620,78 @@ def build_referencer():
     print("  referencer.html")
 
 
+def build_auto_pages():
+    for page in AUTO_PAGES:
+        img_html = ""
+        if page.get("image"):
+            src, alt, contain = page["image"]
+            img_html = page_img(src, alt, contain) + "\n"
+        content = img_html + page["body"].strip() + "\n    " + CONTACT_CTA
+        title = f"{page['title']} – Helsted Specialrengøring og Skadeservice ApS"
+        out = wrap_page(
+            title,
+            page["slug"],
+            page["breadcrumb"],
+            page["title"],
+            content,
+        )
+        (OUT / page["file"]).write_text(out, encoding="utf-8")
+        print(f"  {page['file']} (auto)")
+
+
+def build_vi_tilbyder():
+    out = wrap_page(
+        "Vi tilbyder – Helsted Specialrengøring og Skadeservice ApS",
+        "vi-tilbyder",
+        '<a href="index.html">Forside</a> / Vi tilbyder',
+        "Vi tilbyder",
+        VI_TILBYDER_CONTENT.strip(),
+    )
+    (OUT / "vi-tilbyder.html").write_text(out, encoding="utf-8")
+    print("  vi-tilbyder.html")
+
+
+def build_ekspert_opgaver():
+    out = wrap_page(
+        "Ekspertopgaver – Helsted Specialrengøring og Skadeservice ApS",
+        "ekspert-opgaver",
+        '<a href="index.html">Forside</a> / <a href="vi-tilbyder.html">Vi tilbyder</a> / Ekspertopgaver',
+        "Ekspertopgaver",
+        EKSERT_CONTENT.strip(),
+    )
+    (OUT / "ekspert-opgaver.html").write_text(out, encoding="utf-8")
+    print("  ekspert-opgaver.html")
+
+
+def patch_service_list_links():
+    """Tilføj links på lister i eksisterende ydelsessider."""
+    patches = {
+        "rengoering.html": [
+            ("<li>Virksomhedsrengøring</li>", '<li><a href="virksomhedsrengoering.html">Virksomhedsrengøring</a></li>'),
+            ("<li>Butiksrengøring</li>", '<li><a href="butiksrengoering.html">Butiksrengøring</a></li>'),
+            ("<li>Kontorrengøring</li>", '<li><a href="kontorrengoering.html">Kontorrengøring</a></li>'),
+            ("<li>Socialrengøring</li>", '<li><a href="social-rengoering.html">Socialrengøring</a></li>'),
+            ("<li>Trappevask</li>", '<li><a href="trappevask.html">Trappevask</a></li>'),
+        ],
+        "specialrengoering.html": [
+            ("<li>Gulvpolering</li>", '<li><a href="gulvpolering.html">Gulvpolering</a></li>'),
+            ("<li>Håndværkerrengøring</li>", '<li><a href="special-opgaver.html">Håndværkerrengøring</a></li>'),
+            ("<li>Specialopgaver</li>", '<li><a href="special-opgaver.html">Specialopgaver</a></li>'),
+        ],
+    }
+    for filename, rules in patches.items():
+        path = OUT / filename
+        html = path.read_text(encoding="utf-8")
+        for old, new in rules:
+            html = html.replace(old, new)
+        path.write_text(html, encoding="utf-8")
+        print(f"  {filename} (links)")
+
+
 def main():
     pages = [
-        "profil.html", "vi-tilbyder.html", "rengoering.html", "specialrengoering.html",
-        "social-rengoering.html", "ekspert-opgaver.html", "sandblaesning.html",
+        "profil.html", "rengoering.html", "specialrengoering.html",
+        "social-rengoering.html", "sandblaesning.html",
         "toeris-rensning.html", "facaderensning.html", "graffiti-rensning.html",
         "pcb-sanering.html", "skimmelsanering.html", "fugt-og-vandskader.html",
         "mijloesanering.html", "job.html",
@@ -459,8 +700,12 @@ def main():
     build_index()
     build_kontakt()
     build_referencer()
+    build_vi_tilbyder()
+    build_ekspert_opgaver()
+    build_auto_pages()
     for p in pages:
         build_inner(p)
+    patch_service_list_links()
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
     print("Færdig!")
 

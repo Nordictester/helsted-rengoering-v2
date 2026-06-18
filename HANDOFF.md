@@ -4,12 +4,15 @@
 2026-06-18 · Composer 2.5
 
 ## Hvad vi lavede sidst (max 3)
-- Rettet dropdown-bug (menuer viste sig altid)
-- Tilføjet lys/mørk tema-knap (🌙/☀️) — husker valg i browseren
-- Nyt redesign i `helstedrengoering-v2` med samme tekst og billeder
+- 10 auto-genererede undersider (rengøring, special, højtryksrens, tagrender m.fl.)
+- Vi tilbyder + ekspert-opgaver har nu links til alle ydelser
+- Rettet dropdown-bug + lys/mørk tema
 
 ## Næste skridt (1 ting)
-- Åbn `index.html` i browser og sig til om kunden skal have dette design live.
+- Del preview-linket med kunden og indsaml feedback.
+
+## Live preview
+https://nordictester.github.io/helsted-rengoering-v2/
 
 ## Vigtige filer (max 5)
 - `index.html` — forside
