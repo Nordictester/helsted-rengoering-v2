@@ -205,8 +205,24 @@ EKSERT_CONTENT = """
     <a href="kontakt.html" class="btn btn-primary">Kontakt os</a>"""
 
 def nav(active: str = "") -> str:
-    def cls(page: str) -> str:
-        return ' class="active"' if page == active else ""
+    rengoering_kids = frozenset({
+        "rengoering", "virksomhedsrengoering", "butiksrengoering",
+        "kontorrengoering", "trappevask",
+    })
+    special_kids = frozenset({
+        "specialrengoering", "vinduespudsning", "gulvpolering",
+        "industriservice", "special-opgaver",
+    })
+    ekspert_kids = frozenset({
+        "ekspert-opgaver", "sandblaesning", "toeris-rensning", "facaderensning",
+        "graffiti-rensning", "hojtryksrens", "pcb-sanering", "skimmelsanering",
+        "fugt-og-vandskader", "mijloesanering", "tagrender",
+    })
+
+    def cls(page: str, children=frozenset()) -> str:
+        if page == active or active in children:
+            return ' class="active"'
+        return ""
 
     return f"""<header class="site-header">
   <div class="container header-inner">
@@ -221,20 +237,36 @@ def nav(active: str = "") -> str:
       <ul>
         <li><a href="profil.html"{cls("profil")}>Profil</a></li>
         <li class="has-dropdown">
-          <a href="vi-tilbyder.html"{cls("vi-tilbyder")}>Vi tilbyder</a>
-          <ul class="dropdown">
-            <li><a href="rengoering.html"{cls("rengoering")}>Rengøring</a></li>
-            <li><a href="specialrengoering.html"{cls("specialrengoering")}>Specialrengøring</a></li>
+          <a href="vi-tilbyder.html"{cls("vi-tilbyder", rengoering_kids | special_kids | ekspert_kids | frozenset({"social-rengoering"}))}>Vi tilbyder</a>
+          <ul class="dropdown dropdown-wide">
+            <li class="has-sub"><a href="rengoering.html"{cls("rengoering", rengoering_kids)}>Rengøring</a>
+              <ul class="sub-dropdown">
+                <li><a href="virksomhedsrengoering.html"{cls("virksomhedsrengoering")}>Virksomhedsrengøring</a></li>
+                <li><a href="butiksrengoering.html"{cls("butiksrengoering")}>Butiksrengøring</a></li>
+                <li><a href="kontorrengoering.html"{cls("kontorrengoering")}>Kontorrengøring</a></li>
+                <li><a href="trappevask.html"{cls("trappevask")}>Trappevask</a></li>
+              </ul>
+            </li>
+            <li class="has-sub"><a href="specialrengoering.html"{cls("specialrengoering", special_kids)}>Specialrengøring</a>
+              <ul class="sub-dropdown">
+                <li><a href="vinduespudsning.html"{cls("vinduespudsning")}>Vinduespudsning</a></li>
+                <li><a href="gulvpolering.html"{cls("gulvpolering")}>Gulvpolering</a></li>
+                <li><a href="industriservice.html"{cls("industriservice")}>Industriservice</a></li>
+                <li><a href="special-opgaver.html"{cls("special-opgaver")}>Special opgaver/service</a></li>
+              </ul>
+            </li>
             <li><a href="social-rengoering.html"{cls("social-rengoering")}>Socialrengøring</a></li>
-            <li class="has-sub"><a href="ekspert-opgaver.html"{cls("ekspert-opgaver")}>Ekspertopgaver</a>
+            <li class="has-sub"><a href="ekspert-opgaver.html"{cls("ekspert-opgaver", ekspert_kids)}>Ekspertopgaver</a>
               <ul class="sub-dropdown">
                 <li><a href="sandblaesning.html"{cls("sandblaesning")}>Sandblæsning</a></li>
                 <li><a href="toeris-rensning.html"{cls("toeris-rensning")}>Tørisrensning</a></li>
                 <li><a href="facaderensning.html"{cls("facaderensning")}>Facaderensning</a></li>
+                <li><a href="hojtryksrens.html"{cls("hojtryksrens")}>Højtryksrens</a></li>
                 <li><a href="graffiti-rensning.html"{cls("graffiti-rensning")}>Graffitirensning</a></li>
                 <li><a href="pcb-sanering.html"{cls("pcb-sanering")}>PCB sanering</a></li>
                 <li><a href="skimmelsanering.html"{cls("skimmelsanering")}>Skimmelsvampsanering</a></li>
                 <li><a href="fugt-og-vandskader.html"{cls("fugt-og-vandskader")}>Fugt- og vandskader</a></li>
+                <li><a href="tagrender.html"{cls("tagrender")}>Rengøring af tagrender</a></li>
                 <li><a href="mijloesanering.html"{cls("mijloesanering")}>Miljøsanering</a></li>
               </ul>
             </li>

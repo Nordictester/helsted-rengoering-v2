@@ -189,9 +189,24 @@ a:hover { color: var(--navy); }
 .main-nav .dropdown { top: 100%; left: 0; }
 
 .main-nav .sub-dropdown {
-  min-width: 13rem;
+  min-width: 15rem;
   left: 100%;
   top: 0;
+}
+
+.dropdown-wide { min-width: 15rem; }
+
+.has-sub > a::after {
+  content: " ›";
+  font-weight: 700;
+  opacity: .55;
+}
+
+@media (min-width: 961px) {
+  .dropdown .has-sub > .sub-dropdown {
+    left: 100%;
+    top: 0;
+  }
 }
 
 .main-nav a {
