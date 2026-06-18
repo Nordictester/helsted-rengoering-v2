@@ -44,6 +44,14 @@ a {
 
 a:hover { color: var(--navy); }
 
+[data-theme="dark"] a:hover { color: var(--teal-light); }
+
+[data-theme="dark"] .topbar a:hover,
+[data-theme="dark"] .footer-col a:hover { color: #fff; }
+
+[data-theme="dark"] .btn:hover,
+[data-theme="dark"] .nav-cta:hover { color: #fff !important; }
+
 .skip-link {
   position: absolute;
   left: -9999px;
