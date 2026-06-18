@@ -15,7 +15,7 @@
   --font-body: "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-heading: Georgia, "Times New Roman", serif;
   --max: 72rem;
-  --header-h: 5.5rem;
+  --header-h: 4.25rem;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -66,8 +66,8 @@ a:hover { color: var(--navy); }
   background: var(--navy-dark);
   color: #fff;
   text-align: center;
-  padding: .55rem 1rem;
-  font-size: 1.05rem;
+  padding: .35rem 1rem;
+  font-size: .92rem;
 }
 
 .topbar a {
@@ -112,32 +112,32 @@ a:hover { color: var(--navy); }
   color: var(--navy);
 }
 
-.logo img { width: 52px; height: 52px; flex-shrink: 0; }
+.logo img { width: 42px; height: 42px; flex-shrink: 0; }
 
-.logo-text { line-height: 1.25; }
+.logo-text { line-height: 1.2; }
 
 .logo-name {
   display: block;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: .95rem;
 }
 
 .logo-sub {
   display: block;
-  font-size: .82rem;
+  font-size: .74rem;
   color: var(--muted);
 }
 
 /* Navigation */
 .theme-toggle {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.15rem;
+  height: 2.15rem;
   border-radius: 50%;
   border: 2px solid var(--border);
   background: var(--cream);
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: .95rem;
   line-height: 1;
   padding: 0;
   flex-shrink: 0;
@@ -196,11 +196,11 @@ a:hover { color: var(--navy); }
 
 .main-nav a {
   display: block;
-  padding: .65rem .9rem;
+  padding: .45rem .75rem;
   color: var(--navy);
   text-decoration: none;
   font-weight: 600;
-  font-size: .95rem;
+  font-size: .88rem;
   border-radius: 6px;
 }
 

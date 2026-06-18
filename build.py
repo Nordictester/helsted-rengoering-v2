@@ -211,7 +211,7 @@ def nav(active: str = "") -> str:
     return f"""<header class="site-header">
   <div class="container header-inner">
     <a href="index.html" class="logo">
-      <img src="assets/img/helsted_logo.png" alt="Helsted Specialrengøring logo" width="52" height="52" />
+      <img src="assets/img/helsted_logo.png" alt="Helsted Specialrengøring logo" width="42" height="42" />
       <div class="logo-text">
         <span class="logo-name">Helsted Specialrengøring</span>
         <span class="logo-sub">og Skadeservice ApS</span>
